@@ -249,32 +249,39 @@ push
 from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 
 
+// FIREBASE CONFIG
+
 const firebaseConfig = {
 
-apiKey: "AIzaSyDSl7povCz64KzjiI3p-7_LF6dJ3zPprYY",
+apiKey: "AIzaSyBbjsPPU8cvbGhs8cWoXU-YwLdmeNW_aqw",
 
-authDomain: "tvk-free-recharge.firebaseapp.com",
+authDomain: "tvk-win-free-recharge.firebaseapp.com",
 
 databaseURL:
-"https://tvk-free-recharge-default-rtdb.firebaseio.com",
+"https://tvk-win-free-recharge-default-rtdb.firebaseio.com",
 
-projectId: "tvk-free-recharge",
+projectId: "tvk-win-free-recharge",
 
-storageBucket: "tvk-free-recharge.firebasestorage.app",
+storageBucket: "tvk-win-free-recharge.firebasestorage.app",
 
-messagingSenderId: "77897311838",
+messagingSenderId: "316574280691",
 
-appId: "1:77897311838:web:664e213474f553b51236cf",
-
-measurementId: "G-MCYKNXTQHK"
+appId: "1:316574280691:web:bc3b2bdcabecb879ab8086"
 
 };
 
 
+// INITIALIZE FIREBASE
+
 const app = initializeApp(firebaseConfig);
+
+
+// INITIALIZE DATABASE
 
 const database = getDatabase(app);
 
+
+// OPEN POPUP
 
 window.openPopup = function(){
 
@@ -283,6 +290,8 @@ document.getElementById("popup").style.display="flex";
 }
 
 
+// STORE USER DATA IN FIREBASE
+
 window.submitData = function(){
 
 let name =
@@ -290,6 +299,9 @@ document.getElementById("name").value;
 
 let number =
 document.getElementById("mobile").value;
+
+
+// VALIDATION
 
 if(name === ""){
 
@@ -308,7 +320,7 @@ return;
 }
 
 
-/* STORE USER DATA IN FIREBASE */
+// SAVE USER DATA
 
 push(ref(database,"TVK_Recharge_Users"),{
 
@@ -319,11 +331,19 @@ time:new Date().toLocaleString()
 });
 
 
+// SUCCESS MESSAGE
+
 alert("Recharge Submitted Successfully 🔥");
+
+
+// CLEAR INPUTS
 
 document.getElementById("name").value="";
 
 document.getElementById("mobile").value="";
+
+
+// CLOSE POPUP
 
 document.getElementById("popup").style.display="none";
 
