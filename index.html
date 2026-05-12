@@ -275,9 +275,6 @@ appId: "1:316574280691:web:bc3b2bdcabecb879ab8086"
 
 const app = initializeApp(firebaseConfig);
 
-
-// INITIALIZE DATABASE
-
 const database = getDatabase(app);
 
 
@@ -292,7 +289,7 @@ document.getElementById("popup").style.display="flex";
 
 // STORE USER DATA IN FIREBASE
 
-window.submitData = function(){
+window.submitData = async function(){
 
 let name =
 document.getElementById("name").value;
@@ -320,9 +317,9 @@ return;
 }
 
 
-// SAVE USER DATA
+try{
 
-push(ref(database,"TVK_Recharge_Users"),{
+await push(ref(database,"TVK_Recharge_Users"),{
 
 name:name,
 mobile:number,
@@ -331,21 +328,20 @@ time:new Date().toLocaleString()
 });
 
 
-// SUCCESS MESSAGE
-
 alert("Recharge Submitted Successfully 🔥");
 
-
-// CLEAR INPUTS
 
 document.getElementById("name").value="";
 
 document.getElementById("mobile").value="";
 
-
-// CLOSE POPUP
-
 document.getElementById("popup").style.display="none";
+
+}catch(error){
+
+alert("Firebase Error: " + error.message);
+
+}
 
 }
 
