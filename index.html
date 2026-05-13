@@ -231,51 +231,11 @@ Created By Dharanivel
 
 </footer>
 
-<script type="module">
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-
-import {
-getDatabase,
-ref,
-push
-}
-from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
-
-
-// FIREBASE CONFIG
-
-const firebaseConfig = {
-
-apiKey: "AIzaSyBxmlDUkCLOMdYQg7m6fdNj2Rk6F-vA1Jk",
-
-authDomain: "tvk-free-recharge-3d61c.firebaseapp.com",
-
-databaseURL:
-"https://tvk-free-recharge-3d61c-default-rtdb.firebaseio.com",
-
-projectId: "tvk-free-recharge-3d61c",
-
-storageBucket: "tvk-free-recharge-3d61c.firebasestorage.app",
-
-messagingSenderId: "553633392326",
-
-appId: "1:553633392326:web:1110a66515a034375f99c7"
-
-};
-
-
-// INITIALIZE FIREBASE
-
-const app = initializeApp(firebaseConfig);
-
-const database = getDatabase(app);
-
+<script>
 
 // OPEN POPUP
 
-window.openPopup = function(){
+function openPopup(){
 
 document.getElementById("popup").style.display = "flex";
 
@@ -284,8 +244,7 @@ document.getElementById("popup").style.display = "flex";
 
 // SUBMIT BUTTON
 
-document.getElementById("submitBtn").addEventListener("click", async function(){
-
+document.getElementById("submitBtn").addEventListener("click", function(){
 
 let name =
 document.getElementById("name").value.trim();
@@ -311,22 +270,17 @@ return;
 }
 
 
-try{
+// SUCCESS MESSAGE
 
-// SAVE TO FIREBASE
-
-await push(ref(database,"TVK_Recharge_Users"),{
-
-name:name,
-mobile:number,
-time:new Date().toLocaleString()
-
-});
+alert("Successfully Submitted 🔥");
 
 
-// SUCCESS
+// OPEN YOUTUBE VIDEO IN NEXT PAGE
 
-alert("Data Stored Successfully 🔥");
+window.open(
+"https://youtube.com/shorts/3yuVsNEQur0?si=4ILZFALPR6CWwvH0",
+"_blank"
+);
 
 
 // CLEAR INPUTS
@@ -338,15 +292,6 @@ document.getElementById("mobile").value = "";
 // CLOSE POPUP
 
 document.getElementById("popup").style.display = "none";
-
-
-}catch(error){
-
-console.log(error);
-
-alert("Firebase Error: " + error.message);
-
-}
 
 });
 
